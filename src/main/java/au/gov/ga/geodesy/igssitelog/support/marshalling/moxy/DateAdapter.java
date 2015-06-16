@@ -66,7 +66,7 @@ public class DateAdapter extends XmlAdapter<String, Date> {
         }
         log.info("Failed to unmarshal date '" + s + "' using any of the following patterns: "
                 + Arrays.toString(inputDatePatterns)
-                + " (you could recompile with more patterns); returning null and carrying on");
+                + " (you can recompile with more patterns), returning null and carrying on");
         return null;
     }
 }

@@ -46,7 +46,7 @@ public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
             }
             return dateFormat.parse(s);
         } catch (ParseException e) {
-            log.error("Failed to unmarshal date '" + s + "'; returning null and carrying on");
+            log.error("Failed to unmarshal date '" + s + "', returning null and carrying on");
             return null;
         }
     }
@@ -78,7 +78,7 @@ public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
         if (dates.getFrom() != null || dates.getTo() != null) {
             return dates;
         } else {
-            log.error("Failed to unmarshal effective dates '" + s + "'; returning null and carrying on");
+            log.error("Failed to unmarshal effective dates '" + s + "', returning null and carrying on");
             return null;
         }
     }
