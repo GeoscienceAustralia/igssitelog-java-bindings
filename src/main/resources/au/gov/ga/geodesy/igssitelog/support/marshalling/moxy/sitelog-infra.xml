@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xml-bindings package-name="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy" version="2.5" xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/oxm">
+    <xml-schema element-form-default="QUALIFIED">
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004" prefix="igs"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" prefix="contact"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prefix="li"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prefix="mi"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prefix="equip"/>
+    </xml-schema>
+    <java-types>
+        <java-type name="AdaptedApproximatePosition">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="XCoordinateInMeters YCoordinateInMeters ZCoordinateInMeters latitude longitude elevation"/>
+            <java-attributes>
+                <xml-element java-attribute="XCoordinateInMeters" name="xCoordinateInMeters"/>
+                <xml-element java-attribute="YCoordinateInMeters" name="yCoordinateInMeters"/>
+                <xml-element java-attribute="ZCoordinateInMeters" name="zCoordinateInMeters"/>
+                <xml-element java-attribute="latitude" name="latitude-North">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.LatLongAdapter"/>
+                </xml-element>
+                <xml-element java-attribute="longitude" name="longitude-East">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.LatLongAdapter"/>
+                </xml-element>
+                <xml-element java-attribute="elevation" name="elevation-m_ellips."/>
+            </java-attributes>
+        </java-type>
+    </java-types>
+</xml-bindings>

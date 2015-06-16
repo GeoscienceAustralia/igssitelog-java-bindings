@@ -1,0 +1,196 @@
+<?xml version="1.0"?>
+<xml-bindings package-name="au.gov.ga.geodesy.igssitelog.domain.model" version="2.5" xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/oxm">
+    <xml-schema element-form-default="QUALIFIED">
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004" prefix="igs"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" prefix="contact"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prefix="li"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prefix="mi"/>
+        <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prefix="equip"/>
+    </xml-schema>
+    <xml-java-type-adapters>
+        <xml-java-type-adapter type="java.util.Date" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.EffectiveDates" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.EffectiveDatesAdapter"/>
+        <xml-java-type-adapter type="java.lang.String" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.StringAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssAntenna" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssAntennaAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssReceiver" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssReceiverAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandard" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.HumiditySensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.HumiditySensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.TemperatureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.TemperatureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.LocalEpisodicEvent" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.LocalEpisodicEventAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.WaterVaporSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.WaterVaporSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.CollocationInformation" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CollocationInformationAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.SurveyedLocalTie" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.SurveyedLocalTieAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandard" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.RadioInterference" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.RadioInterferenceAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.DifferentialFromMarker" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DifferentialFromMarkerAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.MoreInformation" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.MoreInformationAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.SignalObstruction" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.SignalObstructionAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.MultipathSource" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.MultipathSourceAdapter"/>
+    </xml-java-type-adapters>
+    <java-types>
+        <java-type name="IgsSiteLog">
+            <xml-root-element name="igsSiteLog" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+            <xml-type prop-order="formInformation siteIdentification siteLocation gnssReceivers gnssAntennas surveyedLocalTies frequencyStandards collocationInformation humiditySensors pressureSensors temperatureSensors waterVaporSensors otherInstrumentation radioInterferences multipathSources signalObstructions localEpisodicEvents contactAgency responsibleAgency moreInformation"/>
+            <java-attributes>
+                <xml-transient java-attribute="id"/>
+                <xml-transient java-attribute="version"/>
+                <xml-transient java-attribute="entryDate"/>
+                <xml-transient java-attribute="siteLogXml"/>
+                <xml-element java-attribute="formInformation" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="siteIdentification" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="siteLocation" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="gnssAntennas" name="gnssAntenna" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="gnssReceivers" name="gnssReceiver" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="surveyedLocalTies" name="surveyedLocalTies" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="frequencyStandards" name="frequencyStandard" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="collocationInformation" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="humiditySensors" name="humiditySensor" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="pressureSensors" name="pressureSensor" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="temperatureSensors" name="temperatureSensor" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="waterVaporSensors" name="waterVaporSensor" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="radioInterferences" name="radioInterferences" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="multipathSources" name="multipathSources" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="signalObstructions" name="signalObstructions" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="localEpisodicEvents" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="otherInstrumentation" name="otherInstrumentation" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="responsibleAgency" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="contactAgency" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+                <xml-element java-attribute="moreInformation" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="FormInformation">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="preparedBy datePrepared reportType"/>
+        </java-type>
+        <java-type name="SiteIdentification">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="siteName fourCharacterId monumentInscription iersDOMESNumber cdpNumber monumentDescription heightOfMonument monumentFoundation foundationDepth markerDescription dateInstalled geologicCharacteristic bedrockType bedrockCondition fractureSpacing faultZonesNearby distanceActivity notes"/>
+            <java-attributes>
+                <xml-element java-attribute="fourCharacterId" name="fourCharacterID"/>
+                <xml-element java-attribute="distanceActivity" name="distance-Activity"/>
+                <xml-element java-attribute="heightOfMonument" name="heightOfTheMonument"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="SiteLocation">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="city state country tectonicPlate approximatePosition notes"/>
+            <java-attributes>
+                <xml-element java-attribute="approximatePosition" name="approximatePositionITRF" namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004" type="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.AdaptedApproximatePosition">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.ApproximatePositionAdapter"/>
+                </xml-element>
+            </java-attributes>
+        </java-type>
+        <java-type name="GnssReceiver">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="receiverType satelliteSystem serialNumber firmwareVersion elevationCutoffSetting dateInstalled dateRemoved temperatureStabilization notes"/>
+            <java-attributes>
+                <xml-element java-attribute="dateInstalled">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateTimeUTCAdapter"/>
+                </xml-element>
+                <xml-element java-attribute="dateRemoved">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateTimeUTCAdapter"/>
+                </xml-element>
+            </java-attributes>
+        </java-type>
+        <java-type name="GnssAntenna">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="antennaType serialNumber antennaReferencePoint markerArpUpEcc markerArpNorthEcc markerArpEastEcc alignmentFromTrueNorth antennaRadomeType radomeSerialNumber antennaCableType antennaCableLength dateInstalled dateRemoved notes"/>
+            <java-attributes>
+                <xml-element java-attribute="markerArpUpEcc" name="marker-arpUpEcc."/>
+                <xml-element java-attribute="markerArpNorthEcc" name="marker-arpNorthEcc."/>
+                <xml-element java-attribute="markerArpEastEcc" name="marker-arpEastEcc."/>
+                <xml-element java-attribute="dateInstalled">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateTimeUTCAdapter"/>
+                </xml-element>
+                <xml-element java-attribute="dateRemoved">
+                    <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateTimeUTCAdapter"/>
+                </xml-element>
+            </java-attributes>
+        </java-type>
+        <java-type name="FrequencyStandard">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="standardType inputFrequency effectiveDates notes "/>
+        </java-type>
+        <java-type name="CollocationInformation">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="instrumentType status effectiveDates notes"/>
+        </java-type>
+        <java-type name="Agency">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" prop-order="name preferredAbbreviation mailingAddress primaryContact secondaryContact notes"/>
+            <java-attributes>
+                <xml-element java-attribute="name" name="agency"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="Contact">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004" prop-order="name telephonePrimary telephoneSecondary fax email"/>
+            <java-attributes>
+                <xml-element java-attribute="email" name="e-mail"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="MoreInformation">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="primaryDataCenter secondaryDataCenter urlForMoreInformation hardCopyOnFile siteMap siteDiagram horizonMask monumentDescription sitePictures notes antennaGraphicsWithDimensions insertTextGraphicFromAntenna"/>
+        </java-type>
+        <java-type name="SensorEquipment" xml-transient="true">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004"/>
+            <!-- <xml&#45;java&#45;type&#45;adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CompositeObjectAdapter"/> -->
+        </java-type>
+        <java-type name="HumiditySensor">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyPercentRelativeHumidity aspiration notes"/>
+            <java-attributes>
+                <xml-element java-attribute="accuracyPercentRelativeHumidity" name="accuracy-percentRelativeHumidity"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="PressureSensor">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyHPa notes"/>
+            <!-- <xml&#45;java&#45;type&#45;adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CompositeObjectAdapter"/> -->
+            <java-attributes>
+                <xml-element java-attribute="accuracyHPa" name="accuracy-hPa"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="TemperatureSensor">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyDegreesCelcius aspiration notes"/>
+            <java-attributes>
+                <xml-element java-attribute="accuracyDegreesCelcius" name="accuracy-degreesCelcius"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="WaterVaporSensor">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates distanceToAntenna notes"/>
+        </java-type>
+        <java-type name="PossibleProblemSource" xml-transient="true">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004"/>
+        </java-type>
+        <java-type name="RadioInterference">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prop-order="possibleProblemSource effectiveDates observedDegradation notes"/>
+            <java-attributes>
+                <xml-element java-attribute="possibleProblemSource" name="possibleProblemSources"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="MultipathSource">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prop-order="possibleProblemSource effectiveDates notes"/>
+            <java-attributes>
+                <xml-element java-attribute="possibleProblemSource" name="possibleProblemSources"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="SignalObstruction">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prop-order="possibleProblemSource effectiveDates notes"/>
+            <java-attributes>
+                <xml-element java-attribute="possibleProblemSource" name="possibleProblemSources"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="SurveyedLocalTie">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="tiedMarkerName tiedMarkerUsage tiedMarkerCdpNumber tiedMarkerDomesNumber differentialFromMarker localSiteTieAccuracy surveyMethod dateMeasured notes"/>
+            <java-attributes>
+                <xml-element java-attribute="tiedMarkerCdpNumber" name="tiedMarkerCDPNumber"/>
+                <xml-element java-attribute="tiedMarkerDomesNumber" name="tiedMarkerDOMESNumber"/>
+                <xml-element java-attribute="differentialFromMarker" name="differentialComponentsGNSSMarkerToTiedMonumentsITRS"/>
+                <xml-element java-attribute="localSiteTieAccuracy" name="localSiteTiesAccuracy"/>
+            </java-attributes>
+        </java-type>
+        <java-type name="LocalEpisodicEvent">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/localInterferences/2004" prop-order="date event"/>
+        </java-type>
+        <java-type name="DifferentialFromMarker">
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004"/>
+            <java-attributes>
+                <xml-element java-attribute="dx" name="dX"/>
+                <xml-element java-attribute="dy" name="dY"/>
+                <xml-element java-attribute="dz" name="dZ"/>
+            </java-attributes>
+        </java-type>
+    </java-types>
+</xml-bindings>
