@@ -5,6 +5,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Transient;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vividsolutions.jts.geom.Point;
 
 /**
@@ -15,6 +16,7 @@ public class ApproximatePosition {
 
     /* @Column(name = "GEOM") */
     @Transient
+    @JsonIgnore
     private Point grs80;
 
     @Size(max = 200)
