@@ -1,24 +1,39 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/humiditySensor.xsd:humiditySensorType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/humiditySensor.xsd:humiditySensorType
  */
+@Entity
+@Table(name = "SITELOG_HUMIDITYSENSOR")
 public class HumiditySensor extends SensorEquipment {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGHUMIDITYSENSOR")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "DATA_SAMPLING_INTERVAL", length = 256)
     protected String dataSamplingInterval;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ACCURACY_PERCENT_REL_HUMIDITY", length = 256)
     protected String accuracyPercentRelativeHumidity;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ASPIRATION", length = 256)
     protected String aspiration;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     @SuppressWarnings("unused")

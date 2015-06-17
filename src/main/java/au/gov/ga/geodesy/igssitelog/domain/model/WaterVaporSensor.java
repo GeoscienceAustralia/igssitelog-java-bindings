@@ -1,17 +1,30 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/waterVaporSensor.xsd:waterVaporSensor
  */
+@Entity
+@Table(name = "SITELOG_WATERVAPORSENSOR")
 public class WaterVaporSensor extends SensorEquipment {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGWATERVAPORSENSOR")
     private Integer id;
 
+    @Column(name = "DISTANCE_TO_ANTENNA")
     protected Double distanceToAntenna;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     @SuppressWarnings("unused")

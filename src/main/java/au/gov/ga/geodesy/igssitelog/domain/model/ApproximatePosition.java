@@ -1,16 +1,33 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Transient;
+import javax.validation.constraints.Size;
+
 import com.vividsolutions.jts.geom.Point;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/siteLocation.xsd:siteLocationType.approximatePositionITRF
  */
+@Embeddable
 public class ApproximatePosition {
 
+    /* @Column(name = "GEOM") */
+    @Transient
     private Point grs80;
+
+    @Size(max = 200)
+    @Column(name = "ELEVATION_GRS80", length = 200)
     private String elevationGrs80;
+
+    @Column(name = "ITRF_X")
     private Double itrfX;
+
+    @Column(name = "ITRF_Y")
     private Double itrfY;
+
+    @Column(name = "ITRF_Z")
     private Double itrfZ;
 
     /**

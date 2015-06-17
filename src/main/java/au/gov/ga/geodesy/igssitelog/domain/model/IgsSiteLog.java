@@ -1,112 +1,150 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
-import java.io.StringWriter;
 import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.Unmarshaller;
 
 import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections.functors.NotNullPredicate;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
 
-import com.vividsolutions.jts.util.CollectionUtil;
-
-import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
 import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/2004/igsSiteLog.xsd:igsSiteLogType
  */
 @Configurable
+@Entity
+@Table(name = "SITELOG_SITE")
 public class IgsSiteLog {
-    private static final Log log =
-            LogFactory.getLog(IgsSiteLog.class);
+    private static final Log log = LogFactory.getLog(IgsSiteLog.class);
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGSITE")
     private Integer id;
+
     private Date entryDate;
 
-    private Long version;
-
-    public Long getVersion() {
-        return version;
-    }
-
-    public void setVersion(long v) {
-        version = v;
-    }
-
     @Autowired
+    @Transient
     private IgsSiteLogXmlMarshaller siteLogXmlMarshaller;
 
     @Valid
+    @Embedded
     protected FormInformation formInformation;
 
     @Valid
     @NotNull
+    @Embedded
     protected SiteIdentification siteIdentification;
 
     @Valid
+    @Embedded
     protected SiteLocation siteLocation;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<GnssReceiver> gnssReceivers;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<GnssAntenna> gnssAntennas;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<SurveyedLocalTie> surveyedLocalTies;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<FrequencyStandard> frequencyStandards;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<CollocationInformation> collocationInformation;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<HumiditySensor> humiditySensors;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<PressureSensor> pressureSensors;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<TemperatureSensor> temperatureSensors;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<WaterVaporSensor> waterVaporSensors;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<OtherInstrumentation> otherInstrumentation;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<RadioInterference> radioInterferences;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<MultipathSource> multipathSources;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<SignalObstruction> signalObstructions;
 
     @Valid
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
     protected Set<LocalEpisodicEvent> localEpisodicEvents;
 
     @Valid
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "RESPONSIBLE_AGENCY_ID")
     protected Agency contactAgency;
 
     @Valid
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "CONTACT_AGENCY_ID")
     protected Agency responsibleAgency;
 
     @Valid
+    @Embedded
     protected MoreInformation moreInformation;
 
     // TODO: public surrogate key

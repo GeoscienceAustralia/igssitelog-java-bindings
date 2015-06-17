@@ -1,5 +1,7 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -8,13 +10,16 @@ import javax.validation.constraints.Size;
  */
 public class PossibleProblemSource {
 
-    @Size(max = 200)
+    @Size(max = 4096)
+    @Column(name = "POSSIBLE_PROBLEM_SOURCE", length = 4096)
     protected String possibleProblemSource;
 
     @Valid
+    @Embedded
     protected EffectiveDates effectiveDates;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     /**

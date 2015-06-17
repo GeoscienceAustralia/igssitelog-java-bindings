@@ -1,25 +1,41 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/collocationInformation.xsd:collocationInformationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/collocationInformation.xsd:collocationInformationType
  */
+@Entity
+@Table(name = "SITELOG_COLLOCATIONINFORMATION")
 public class CollocationInformation {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGCOLLOCATIONINFO")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "INSTRUMENT_TYPE", length = 256)
     protected String instrumentType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "STATUS", length = 256)
     protected String status;
 
     @Valid
+    @Embedded
     protected EffectiveDates effectiveDates;
 
-    @Size(max = 4000)
+    @Size(max = 256)
+    @Column(name = "NOTES", length = 256)
     protected String notes;
 
     @SuppressWarnings("unused")

@@ -2,53 +2,78 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/antenna.xsd:gnssAntennaType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/antenna.xsd:gnssAntennaType
  */
+@Entity
+@Table(name = "SITELOG_GNSSANTENNA")
 public class GnssAntenna {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGANTENNA")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ANTENNA_TYPE", length = 256)
     protected String antennaType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SERIAL_NUMBER", length = 256)
     protected String serialNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ANTENNA_REFERENCE_POINT", length = 256)
     protected String antennaReferencePoint;
 
+    @Column(name = "MARKER_ARP_UP_ECC")
     protected Double markerArpUpEcc;
 
+    @Column(name = "MARKER_ARP_NORTH_ECC")
     protected Double markerArpNorthEcc;
 
+    @Column(name = "MARKER_ARP_EAST_ECC")
     protected Double markerArpEastEcc;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ALIGNMENT_FROM_TRUE_NORTH", length = 256)
     protected String alignmentFromTrueNorth;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ANTENNA_RADOME_TYPE", length = 256)
     protected String antennaRadomeType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "RADOME_SERIAL_NUMBER", length = 256)
     protected String radomeSerialNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ANTENNA_CABLE_TYPE", length = 256)
     protected String antennaCableType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ANTENNA_CABLE_LENGTH", length = 256)
     protected String antennaCableLength;
 
     @Past
+    @Column(name = "DATE_INSTALLED")
     protected Date dateInstalled;
 
     @Past
+    @Column(name = "DATE_REMOVED")
     protected Date dateRemoved;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     @SuppressWarnings("unused")

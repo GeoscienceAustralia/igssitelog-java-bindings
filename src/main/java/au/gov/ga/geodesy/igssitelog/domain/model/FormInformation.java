@@ -2,21 +2,24 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/formInformation.xsd:formInformationType
  */
+@Embeddable
 public class FormInformation {
 
-    @Size(min = 0, max = 200)
+    @Column(name = "FORM_PREPARED_BY", length = 200)
     protected String preparedBy;
 
+    @Column(name = "FORM_DATE_PREPARED")
     @Past
     protected Date datePrepared;
 
-    @Size(min = 0, max = 200)
+    @Column(name = "FORM_REPORT_TYPE", length = 200)
     protected String reportType;
 
     /**

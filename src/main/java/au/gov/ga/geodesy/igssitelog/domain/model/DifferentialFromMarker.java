@@ -1,13 +1,22 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/surveyedLocalTies.xsd:surveyedLocalTiesType.
  * differentialComponentsGNSSMarkerToTiedMonumebtsITRS
  */
+@Embeddable
 public class DifferentialFromMarker {
 
+    @Column(name = "DX")
     protected Double dx;
+
+    @Column(name = "DY")
     protected Double dy;
+
+    @Column(name = "DZ")
     protected Double dz;
 
     /**

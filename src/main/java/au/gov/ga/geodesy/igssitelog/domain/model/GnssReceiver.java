@@ -2,41 +2,61 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/receiver.xsd:gnssReceiverType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/receiver.xsd:gnssReceiverType
  */
+@Entity
+@Table(name = "SITELOG_GNSSGRECEIVER")
 public class GnssReceiver {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGRECEIVER")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "RECEIVER_TYPE", length = 256)
     protected String receiverType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SATELLITE_SYSTEM", length = 256)
     protected String satelliteSystem;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SERIAL_NUMBER", length = 256)
     protected String serialNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "FIRMWARE_VERSION", length = 256)
     protected String firmwareVersion;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ELEVATION_CUTOFF_SETTING", length = 256)
     protected String elevationCutoffSetting;
 
     @Past
+    @Column(name = "DATE_INSTALLED")
     protected Date dateInstalled;
 
     @Past
+    @Column(name = "DATE_REMOVED")
     protected Date dateRemoved;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TEMPERATURE_STABILIZATION", length = 256)
     protected String temperatureStabilization;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     @SuppressWarnings("unused")

@@ -1,25 +1,41 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/frequencyStandard.xsd:frequenceStandardType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/frequencyStandard.xsd:frequenceStandardType
  */
+@Entity
+@Table(name = "FREQUENCE_STANDARD")
 public class FrequencyStandard {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGFREQUENCYSTANDARD")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "STANDARD_TYPE", length = 256)
     protected String standardType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "INPUT_FREQUENCY", length = 256)
     protected String inputFrequency;
 
     @Valid
+    @Embedded
     protected EffectiveDates effectiveDates;
 
-    @Size(max = 4000)
+    @Size(max = 4096)
+    @Column(name = "NOTES", length = 4096)
     protected String notes;
 
     @SuppressWarnings("unused")

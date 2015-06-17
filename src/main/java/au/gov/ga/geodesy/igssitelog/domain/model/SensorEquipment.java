@@ -2,31 +2,39 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/baseEquipmentLib.xsd:baseSensorEquipmentType"
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/baseEquipmentLib.xsd:baseSensorEquipmentType"
  */
 public class SensorEquipment {
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TYPE", length = 256)
     protected String type;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MANUFACTURER", length = 256)
     protected String manufacturer;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SERIAL_NUMBER", length = 256)
     protected String serialNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "HEIGHT_DIFF_TO_ANTENNA", length = 256)
     protected String heightDiffToAntenna;
 
     @Past
+    @Column(name = "CALLIBRATION_DATE", length = 256)
     protected Date calibrationDate;
 
     @Valid
+    @Embedded
     protected EffectiveDates effectiveDates;
 
     /**
