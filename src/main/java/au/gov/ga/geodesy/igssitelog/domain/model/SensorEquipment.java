@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
+import javax.persistence.MappedSuperclass;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
@@ -11,6 +12,7 @@ import javax.validation.constraints.Size;
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/baseEquipmentLib.xsd:baseSensorEquipmentType"
  */
+@MappedSuperclass
 public class SensorEquipment {
 
     @Size(max = 256)
