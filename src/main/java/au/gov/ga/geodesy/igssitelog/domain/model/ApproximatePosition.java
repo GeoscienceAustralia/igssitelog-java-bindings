@@ -16,7 +16,6 @@ public class ApproximatePosition {
 
     /* @Column(name = "GEOM") */
     @Transient
-    @JsonIgnore
     private Point grs80;
 
     @Size(max = 200)
