@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "SITELOG_GNSSGRECEIVER")
-public class GnssReceiver {
+public class GnssReceiver implements Equipment {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
@@ -195,5 +195,9 @@ public class GnssReceiver {
      */
     public void setNotes(String value) {
         this.notes = value;
+    }
+
+    public EffectiveDates getEffectiveDates() {
+        return new EffectiveDates(getDateInstalled(), getDateRemoved());
     }
 }

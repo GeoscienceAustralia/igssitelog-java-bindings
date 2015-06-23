@@ -1,8 +1,10 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -470,5 +472,13 @@ public class IgsSiteLog {
                 }
             }
         }
+    }
+
+    public List<Equipment> getEquipment() {
+        List<Equipment> equipment = new ArrayList<Equipment>();
+        equipment.addAll(getGnssReceivers());
+        equipment.addAll(getGnssAntennas());
+        equipment.addAll(getHumiditySensors());
+        return equipment;
     }
 }

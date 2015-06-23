@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "SITELOG_GNSSANTENNA")
-public class GnssAntenna {
+public class GnssAntenna implements Equipment {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
@@ -280,5 +280,9 @@ public class GnssAntenna {
      */
     public void setNotes(String value) {
         this.notes = value;
+    }
+
+    public EffectiveDates getEffectiveDates() {
+        return new EffectiveDates(getDateInstalled(), getDateRemoved());
     }
 }
