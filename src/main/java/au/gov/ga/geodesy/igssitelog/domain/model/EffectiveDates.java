@@ -21,6 +21,18 @@ public class EffectiveDates {
     @Column(name = "EFFECTIVE_TO")
     private Date to;
 
+    public EffectiveDates() {
+    }
+
+    public EffectiveDates(Date from) {
+        this(from, null);
+    }
+
+    public EffectiveDates(Date from, Date to) {
+        setFrom(from);
+        setTo(to);
+    }
+
     public Date getFrom() {
         return from;
     }
