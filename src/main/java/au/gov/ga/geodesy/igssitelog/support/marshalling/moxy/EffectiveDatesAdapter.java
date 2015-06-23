@@ -3,6 +3,7 @@ package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
@@ -17,6 +18,10 @@ public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static final String formatPattern = "(CCYY-MM-DD)";
+
+    public EffectiveDatesAdapter() {
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+    }
 
     @Override
     public String marshal(EffectiveDates dates) throws Exception {
