@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "FREQUENCY_STANDARD")
-public class FrequencyStandard {
+public class FrequencyStandardLogItem {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")

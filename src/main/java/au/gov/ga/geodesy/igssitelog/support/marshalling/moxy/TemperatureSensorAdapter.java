@@ -1,6 +1,6 @@
 package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 
-import au.gov.ga.geodesy.igssitelog.domain.model.TemperatureSensor;
+import au.gov.ga.geodesy.igssitelog.domain.model.TemperatureSensorLogItem;
 
-public class TemperatureSensorAdapter extends OptionalCompositeAdapter<TemperatureSensor> {
+public class TemperatureSensorAdapter extends OptionalCompositeAdapter<TemperatureSensorLogItem> {
 }

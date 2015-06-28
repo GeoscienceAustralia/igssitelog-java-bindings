@@ -9,24 +9,27 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/pressureSensor.xsd:pressureSensorType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/temperatureSensor.xsd:temperatureSensorType
  */
 @Entity
-@Table(name = "SITELOG_PRESSURESENSOR")
-public class PressureSensor extends SensorEquipment {
+@Table(name = "SITELOG_TEMPERATURESENSOR")
+public class TemperatureSensorLogItem extends SensorEquipmentLogItem {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
-    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGPRESSURESENSOR")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGTEMPERATURESENSOR")
     private Integer id;
 
     @Size(max = 256)
     @Column(name = "DATA_SAMPLING_INTERVAL", length = 256)
     protected String dataSamplingInterval;
 
+    @Column(name = "ACCURACE_DEGREE_CELCIUS", length = 256)
+    protected String accuracyDegreesCelcius;
+
     @Size(max = 256)
-    @Column(name = "ACCURACY_HPA", length = 256)
-    protected String accuracyHPa;
+    @Column(name = "ASPIRATION", length = 256)
+    protected String aspiration;
 
     @Size(max = 4000)
     @Column(name = "NOTES", length = 4000)
@@ -57,17 +60,31 @@ public class PressureSensor extends SensorEquipment {
     }
 
     /**
-     * Return accuracy hPa.
+     * Return accuracy degrees ceclius.
      */
-    public String getAccuracyHPa() {
-        return accuracyHPa;
+    public String getAccuracyDegreesCelcius() {
+        return accuracyDegreesCelcius;
     }
 
     /**
-     * Set accuracy hPa.
+     * Set accuracy degrees celcius.
      */
-    public void setAccuracyHPa(String value) {
-        this.accuracyHPa = value;
+    public void setAccuracyDegreesCelcius(String value) {
+        this.accuracyDegreesCelcius = value;
+    }
+
+    /**
+     * Return aspiration.
+     */
+    public String getAspiration() {
+        return aspiration;
+    }
+
+    /**
+     * Set aspiration.
+     */
+    public void setAspiration(String value) {
+        this.aspiration = value;
     }
 
     /**

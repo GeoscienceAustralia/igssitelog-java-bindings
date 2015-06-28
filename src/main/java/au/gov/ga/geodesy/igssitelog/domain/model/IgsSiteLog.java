@@ -69,12 +69,12 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<GnssReceiver> gnssReceivers = new HashSet<GnssReceiver>();
+    protected Set<GnssReceiverLogItem> gnssReceivers = new HashSet<GnssReceiverLogItem>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<GnssAntenna> gnssAntennas = new HashSet<GnssAntenna>();
+    protected Set<GnssAntennaLogItem> gnssAntennas = new HashSet<GnssAntennaLogItem>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -84,7 +84,7 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<FrequencyStandard> frequencyStandards;
+    protected Set<FrequencyStandardLogItem> frequencyStandards;
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -94,22 +94,22 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<HumiditySensor> humiditySensors = new HashSet<HumiditySensor>();
+    protected Set<HumiditySensorLogItem> humiditySensors = new HashSet<HumiditySensorLogItem>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<PressureSensor> pressureSensors;
+    protected Set<PressureSensorLogItem> pressureSensors;
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<TemperatureSensor> temperatureSensors;
+    protected Set<TemperatureSensorLogItem> temperatureSensors;
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<WaterVaporSensor> waterVaporSensors;
+    protected Set<WaterVaporSensorLogItem> waterVaporSensors;
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -227,28 +227,28 @@ public class IgsSiteLog {
     /**
      * Return GNSS receivers.
      */
-    public Set<GnssReceiver> getGnssReceivers() {
+    public Set<GnssReceiverLogItem> getGnssReceivers() {
         return gnssReceivers;
     }
 
     /**
      * Set GNSS receivers.
      */
-    public void setGnssReceivers(Set<GnssReceiver> rs) {
+    public void setGnssReceivers(Set<GnssReceiverLogItem> rs) {
         gnssReceivers = rs;
     }
 
     /**
      * Return GNSS antennas.
      */
-    public Set<GnssAntenna> getGnssAntennas() {
+    public Set<GnssAntennaLogItem> getGnssAntennas() {
         return gnssAntennas;
     }
 
     /**
      * Set GNSS antennas.
      */
-    public void setGnssAntennas(Set<GnssAntenna> as) {
+    public void setGnssAntennas(Set<GnssAntennaLogItem> as) {
         gnssAntennas = as;
     }
 
@@ -269,14 +269,14 @@ public class IgsSiteLog {
     /**
      * Return frequency standards.
      */
-    public Set<FrequencyStandard> getFrequencyStandards() {
+    public Set<FrequencyStandardLogItem> getFrequencyStandards() {
         return frequencyStandards;
     }
 
     /**
      * Set frequency standards.
      */
-    public void setFrequencyStandards(Set<FrequencyStandard> fs) {
+    public void setFrequencyStandards(Set<FrequencyStandardLogItem> fs) {
         frequencyStandards = fs;
     }
 
@@ -297,56 +297,56 @@ public class IgsSiteLog {
     /**
      * Return humidity sensor.
      */
-    public Set<HumiditySensor> getHumiditySensors() {
+    public Set<HumiditySensorLogItem> getHumiditySensors() {
         return this.humiditySensors;
     }
 
     /**
      * Set humidity sensor.
      */
-    public void setHumiditySensors(Set<HumiditySensor> hs) {
+    public void setHumiditySensors(Set<HumiditySensorLogItem> hs) {
         humiditySensors = hs;
     }
 
     /**
      * Return pressure sensors.
      */
-    public Set<PressureSensor> getPressureSensors() {
+    public Set<PressureSensorLogItem> getPressureSensors() {
         return this.pressureSensors;
     }
 
     /**
      * Set pressure sensors.
      */
-    public void setPressureSensors(Set<PressureSensor> ps) {
+    public void setPressureSensors(Set<PressureSensorLogItem> ps) {
         pressureSensors = ps;
     }
 
     /**
      * Return temperature sensors.
      */
-    public Set<TemperatureSensor> getTemperatureSensors() {
+    public Set<TemperatureSensorLogItem> getTemperatureSensors() {
         return this.temperatureSensors;
     }
 
     /**
      * Set temperature sensors.
      */
-    public void setTemperatureSensors(Set<TemperatureSensor> ts) {
+    public void setTemperatureSensors(Set<TemperatureSensorLogItem> ts) {
         temperatureSensors = ts;
     }
 
     /**
      * Return water vapor sensors.
      */
-    public Set<WaterVaporSensor> getWaterVaporSensors() {
+    public Set<WaterVaporSensorLogItem> getWaterVaporSensors() {
         return this.waterVaporSensors;
     }
 
     /**
      * Set water vapor sensors.
      */
-    public void setWaterVaporSensors(Set<WaterVaporSensor> vs) {
+    public void setWaterVaporSensors(Set<WaterVaporSensorLogItem> vs) {
         waterVaporSensors = vs;
     }
 
@@ -475,8 +475,8 @@ public class IgsSiteLog {
         }
     }
 
-    public List<Equipment> getEquipment() {
-        List<Equipment> equipment = new ArrayList<Equipment>();
+    public List<EquipmentLogItem> getEquipmentLogItems() {
+        List<EquipmentLogItem> equipment = new ArrayList<EquipmentLogItem>();
         equipment.addAll(getGnssReceivers());
         equipment.addAll(getGnssAntennas());
         equipment.addAll(getHumiditySensors());

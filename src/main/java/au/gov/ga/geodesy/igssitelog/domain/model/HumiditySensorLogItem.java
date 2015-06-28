@@ -9,23 +9,24 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/temperatureSensor.xsd:temperatureSensorType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/humiditySensor.xsd:humiditySensorType
  */
 @Entity
-@Table(name = "SITELOG_TEMPERATURESENSOR")
-public class TemperatureSensor extends SensorEquipment {
+@Table(name = "SITELOG_HUMIDITYSENSOR")
+public class HumiditySensorLogItem extends SensorEquipmentLogItem {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
-    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGTEMPERATURESENSOR")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGHUMIDITYSENSOR")
     private Integer id;
 
     @Size(max = 256)
     @Column(name = "DATA_SAMPLING_INTERVAL", length = 256)
     protected String dataSamplingInterval;
 
-    @Column(name = "ACCURACE_DEGREE_CELCIUS", length = 256)
-    protected String accuracyDegreesCelcius;
+    @Size(max = 256)
+    @Column(name = "ACCURACY_PERCENT_REL_HUMIDITY", length = 256)
+    protected String accuracyPercentRelativeHumidity;
 
     @Size(max = 256)
     @Column(name = "ASPIRATION", length = 256)
@@ -60,17 +61,17 @@ public class TemperatureSensor extends SensorEquipment {
     }
 
     /**
-     * Return accuracy degrees ceclius.
+     * Return accuracy percent relative humidity.
      */
-    public String getAccuracyDegreesCelcius() {
-        return accuracyDegreesCelcius;
+    public String getAccuracyPercentRelativeHumidity() {
+        return accuracyPercentRelativeHumidity;
     }
 
     /**
-     * Set accuracy degrees celcius.
+     * Set accuracy percent relative humidity.
      */
-    public void setAccuracyDegreesCelcius(String value) {
-        this.accuracyDegreesCelcius = value;
+    public void setAccuracyPercentRelativeHumidity(String value) {
+        this.accuracyPercentRelativeHumidity = value;
     }
 
     /**

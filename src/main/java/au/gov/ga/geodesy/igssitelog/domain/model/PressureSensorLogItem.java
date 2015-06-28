@@ -9,15 +9,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/humiditySensor.xsd:humiditySensorType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/pressureSensor.xsd:pressureSensorType
  */
 @Entity
-@Table(name = "SITELOG_HUMIDITYSENSOR")
-public class HumiditySensor extends SensorEquipment {
+@Table(name = "SITELOG_PRESSURESENSOR")
+public class PressureSensorLogItem extends SensorEquipmentLogItem {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
-    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGHUMIDITYSENSOR")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGPRESSURESENSOR")
     private Integer id;
 
     @Size(max = 256)
@@ -25,12 +25,8 @@ public class HumiditySensor extends SensorEquipment {
     protected String dataSamplingInterval;
 
     @Size(max = 256)
-    @Column(name = "ACCURACY_PERCENT_REL_HUMIDITY", length = 256)
-    protected String accuracyPercentRelativeHumidity;
-
-    @Size(max = 256)
-    @Column(name = "ASPIRATION", length = 256)
-    protected String aspiration;
+    @Column(name = "ACCURACY_HPA", length = 256)
+    protected String accuracyHPa;
 
     @Size(max = 4000)
     @Column(name = "NOTES", length = 4000)
@@ -61,31 +57,17 @@ public class HumiditySensor extends SensorEquipment {
     }
 
     /**
-     * Return accuracy percent relative humidity.
+     * Return accuracy hPa.
      */
-    public String getAccuracyPercentRelativeHumidity() {
-        return accuracyPercentRelativeHumidity;
+    public String getAccuracyHPa() {
+        return accuracyHPa;
     }
 
     /**
-     * Set accuracy percent relative humidity.
+     * Set accuracy hPa.
      */
-    public void setAccuracyPercentRelativeHumidity(String value) {
-        this.accuracyPercentRelativeHumidity = value;
-    }
-
-    /**
-     * Return aspiration.
-     */
-    public String getAspiration() {
-        return aspiration;
-    }
-
-    /**
-     * Set aspiration.
-     */
-    public void setAspiration(String value) {
-        this.aspiration = value;
+    public void setAccuracyHPa(String value) {
+        this.accuracyHPa = value;
     }
 
     /**

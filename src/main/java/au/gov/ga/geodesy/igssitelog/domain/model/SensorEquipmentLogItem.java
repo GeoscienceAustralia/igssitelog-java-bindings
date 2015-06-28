@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/baseEquipmentLib.xsd:baseSensorEquipmentType"
  */
 @MappedSuperclass
-public class SensorEquipment implements Equipment {
+public class SensorEquipmentLogItem implements EquipmentLogItem {
 
     @Size(max = 256)
     @Column(name = "TYPE", length = 256)

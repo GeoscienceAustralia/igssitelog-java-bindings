@@ -1,6 +1,6 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
-public interface Equipment {
+public interface EquipmentLogItem {
     EffectiveDates getEffectiveDates();
 }
 

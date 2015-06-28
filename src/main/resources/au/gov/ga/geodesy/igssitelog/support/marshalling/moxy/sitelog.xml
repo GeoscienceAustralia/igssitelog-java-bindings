@@ -11,18 +11,18 @@
         <xml-java-type-adapter type="java.util.Date" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.EffectiveDates" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.EffectiveDatesAdapter"/>
         <xml-java-type-adapter type="java.lang.String" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.StringAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssAntenna" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssAntennaAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssReceiver" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssReceiverAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandard" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.HumiditySensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.HumiditySensorAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.TemperatureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.TemperatureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssAntennaLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssAntennaAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssReceiverLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssReceiverAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandardLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.HumiditySensorLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.HumiditySensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensorLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.TemperatureSensorLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.TemperatureSensorAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.LocalEpisodicEvent" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.LocalEpisodicEventAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.WaterVaporSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.WaterVaporSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.WaterVaporSensorLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.WaterVaporSensorAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.CollocationInformation" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CollocationInformationAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensor" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.PressureSensorLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.PressureSensorAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.SurveyedLocalTie" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.SurveyedLocalTieAdapter"/>
-        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandard" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.FrequencyStandardLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.FrequencyStandardAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.RadioInterference" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.RadioInterferenceAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.DifferentialFromMarker" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DifferentialFromMarkerAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.MoreInformation" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.MoreInformationAdapter"/>
@@ -80,7 +80,7 @@
                 </xml-element>
             </java-attributes>
         </java-type>
-        <java-type name="GnssReceiver">
+        <java-type name="GnssReceiverLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="receiverType satelliteSystem serialNumber firmwareVersion elevationCutoffSetting dateInstalled dateRemoved temperatureStabilization notes"/>
             <java-attributes>
                 <xml-element java-attribute="dateInstalled">
@@ -91,7 +91,7 @@
                 </xml-element>
             </java-attributes>
         </java-type>
-        <java-type name="GnssAntenna">
+        <java-type name="GnssAntennaLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="antennaType serialNumber antennaReferencePoint markerArpUpEcc markerArpNorthEcc markerArpEastEcc alignmentFromTrueNorth antennaRadomeType radomeSerialNumber antennaCableType antennaCableLength dateInstalled dateRemoved notes"/>
             <java-attributes>
                 <xml-element java-attribute="markerArpUpEcc" name="marker-arpUpEcc."/>
@@ -105,7 +105,7 @@
                 </xml-element>
             </java-attributes>
         </java-type>
-        <java-type name="FrequencyStandard">
+        <java-type name="FrequencyStandardLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="standardType inputFrequency effectiveDates notes "/>
         </java-type>
         <java-type name="CollocationInformation">
@@ -126,30 +126,30 @@
         <java-type name="MoreInformation">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004" prop-order="primaryDataCenter secondaryDataCenter urlForMoreInformation hardCopyOnFile siteMap siteDiagram horizonMask monumentDescription sitePictures notes antennaGraphicsWithDimensions insertTextGraphicFromAntenna"/>
         </java-type>
-        <java-type name="SensorEquipment" xml-transient="true">
+        <java-type name="SensorEquipmentLogItem" xml-transient="true">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004"/>
             <!-- <xml&#45;java&#45;type&#45;adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CompositeObjectAdapter"/> -->
         </java-type>
-        <java-type name="HumiditySensor">
+        <java-type name="HumiditySensorLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyPercentRelativeHumidity aspiration notes"/>
             <java-attributes>
                 <xml-element java-attribute="accuracyPercentRelativeHumidity" name="accuracy-percentRelativeHumidity"/>
             </java-attributes>
         </java-type>
-        <java-type name="PressureSensor">
+        <java-type name="PressureSensorLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyHPa notes"/>
             <!-- <xml&#45;java&#45;type&#45;adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.CompositeObjectAdapter"/> -->
             <java-attributes>
                 <xml-element java-attribute="accuracyHPa" name="accuracy-hPa"/>
             </java-attributes>
         </java-type>
-        <java-type name="TemperatureSensor">
+        <java-type name="TemperatureSensorLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates dataSamplingInterval accuracyDegreesCelcius aspiration notes"/>
             <java-attributes>
                 <xml-element java-attribute="accuracyDegreesCelcius" name="accuracy-degreesCelcius"/>
             </java-attributes>
         </java-type>
-        <java-type name="WaterVaporSensor">
+        <java-type name="WaterVaporSensorLogItem">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type manufacturer serialNumber heightDiffToAntenna calibrationDate effectiveDates distanceToAntenna notes"/>
         </java-type>
         <java-type name="PossibleProblemSource" xml-transient="true">
