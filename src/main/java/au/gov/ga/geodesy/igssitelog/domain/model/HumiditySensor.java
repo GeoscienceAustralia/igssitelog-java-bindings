@@ -32,8 +32,8 @@ public class HumiditySensor extends SensorEquipment {
     @Column(name = "ASPIRATION", length = 256)
     protected String aspiration;
 
-    @Size(max = 4096)
-    @Column(name = "NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

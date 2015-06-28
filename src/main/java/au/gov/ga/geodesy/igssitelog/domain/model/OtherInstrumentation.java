@@ -19,11 +19,11 @@ public class OtherInstrumentation {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
-    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGOTHERINSTRUMENTATION")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGOTHERINSTRUMENT")
     private Integer id;
 
-    @Size(max = 4096)
-    @Column(name = "INSTRUMENTATION", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "INSTRUMENTATION", length = 4000)
     protected String instrumentation;
 
     @Valid

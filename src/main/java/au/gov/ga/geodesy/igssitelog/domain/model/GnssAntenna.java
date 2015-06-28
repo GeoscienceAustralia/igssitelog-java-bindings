@@ -72,8 +72,8 @@ public class GnssAntenna implements Equipment {
     @Column(name = "DATE_REMOVED")
     protected Date dateRemoved;
 
-    @Size(max = 4096)
-    @Column(name = "NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

@@ -10,16 +10,16 @@ import javax.validation.constraints.Size;
  */
 public class PossibleProblemSource {
 
-    @Size(max = 4096)
-    @Column(name = "POSSIBLE_PROBLEM_SOURCE", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "POSSIBLE_PROBLEM_SOURCE", length = 4000)
     protected String possibleProblemSource;
 
     @Valid
     @Embedded
     protected EffectiveDates effectiveDates;
 
-    @Size(max = 4096)
-    @Column(name = "NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     /**

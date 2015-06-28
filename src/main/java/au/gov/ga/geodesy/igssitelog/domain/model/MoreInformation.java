@@ -44,8 +44,8 @@ public class MoreInformation {
     @Column(name = "MI_SITE_PICTIRES", length = 256)
     protected String sitePictures;
 
-    @Size(max = 4096)
-    @Column(name = "MI_NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "MI_NOTES", length = 4000)
     protected String notes;
 
     @Size(max = 256)

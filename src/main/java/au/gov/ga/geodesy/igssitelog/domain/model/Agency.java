@@ -46,8 +46,8 @@ public class Agency {
     @JoinColumn(name = "SECONDARY_CONTACT_ID")
     protected Contact secondaryContact;
 
-    @Size(max = 4096)
-    @Column(name = "NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

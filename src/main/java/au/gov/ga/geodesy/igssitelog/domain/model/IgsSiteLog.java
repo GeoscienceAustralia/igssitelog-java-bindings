@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -68,12 +69,12 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<GnssReceiver> gnssReceivers;
+    protected Set<GnssReceiver> gnssReceivers = new HashSet<GnssReceiver>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<GnssAntenna> gnssAntennas;
+    protected Set<GnssAntenna> gnssAntennas = new HashSet<GnssAntenna>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -93,7 +94,7 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<HumiditySensor> humiditySensors;
+    protected Set<HumiditySensor> humiditySensors = new HashSet<HumiditySensor>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)

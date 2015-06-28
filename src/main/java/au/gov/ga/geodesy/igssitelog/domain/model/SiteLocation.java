@@ -33,7 +33,7 @@ public class SiteLocation {
     protected ApproximatePosition approximatePosition;
 
     @Size(max = 4000)
-    @Column(name = "LOCATION_NOTES", length = 4096)
+    @Column(name = "LOCATION_NOTES", length = 4000)
     protected String notes;
 
     /**

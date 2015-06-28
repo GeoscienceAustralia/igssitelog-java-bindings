@@ -28,8 +28,8 @@ public class PressureSensor extends SensorEquipment {
     @Column(name = "ACCURACY_HPA", length = 256)
     protected String accuracyHPa;
 
-    @Size(max = 4096)
-    @Column(name = "NOTES", length = 4096)
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

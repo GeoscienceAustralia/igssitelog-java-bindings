@@ -21,7 +21,7 @@ public class LocalEpisodicEvent {
     private Integer id;
 
     @Size(max = 256)
-    @Column(name = "DATE", length = 256)
+    @Column(name = "EVENT_DATE", length = 256)
     protected String date;
 
     @Size(max = 256)
