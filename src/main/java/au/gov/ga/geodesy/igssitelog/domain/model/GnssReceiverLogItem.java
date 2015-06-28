@@ -25,7 +25,7 @@ public class GnssReceiverLogItem implements EquipmentLogItem {
 
     @Size(max = 256)
     @Column(name = "RECEIVER_TYPE", length = 256)
-    protected String receiverType;
+    protected String type;
 
     @Size(max = 256)
     @Column(name = "SATELLITE_SYSTEM", length = 256)
@@ -72,15 +72,15 @@ public class GnssReceiverLogItem implements EquipmentLogItem {
     /**
      * Return receiver type.
      */
-    public String getReceiverType() {
-        return receiverType;
+    public String getType() {
+        return type;
     }
 
     /**
      * Set receiver type.
      */
-    public void setReceiverType(String value) {
-        this.receiverType = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**

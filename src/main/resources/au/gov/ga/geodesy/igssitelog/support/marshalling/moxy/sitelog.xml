@@ -81,7 +81,7 @@
             </java-attributes>
         </java-type>
         <java-type name="GnssReceiverLogItem">
-            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="receiverType satelliteSystem serialNumber firmwareVersion elevationCutoffSetting dateInstalled dateRemoved temperatureStabilization notes"/>
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type satelliteSystem serialNumber firmwareVersion elevationCutoffSetting dateInstalled dateRemoved temperatureStabilization notes"/>
             <java-attributes>
                 <xml-element java-attribute="dateInstalled">
                     <xml-java-type-adapter value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateTimeUTCAdapter"/>
@@ -92,7 +92,7 @@
             </java-attributes>
         </java-type>
         <java-type name="GnssAntennaLogItem">
-            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="antennaType serialNumber antennaReferencePoint markerArpUpEcc markerArpNorthEcc markerArpEastEcc alignmentFromTrueNorth antennaRadomeType radomeSerialNumber antennaCableType antennaCableLength dateInstalled dateRemoved notes"/>
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type serialNumber antennaReferencePoint markerArpUpEcc markerArpNorthEcc markerArpEastEcc alignmentFromTrueNorth antennaRadomeType radomeSerialNumber antennaCableType antennaCableLength dateInstalled dateRemoved notes"/>
             <java-attributes>
                 <xml-element java-attribute="markerArpUpEcc" name="marker-arpUpEcc."/>
                 <xml-element java-attribute="markerArpNorthEcc" name="marker-arpNorthEcc."/>

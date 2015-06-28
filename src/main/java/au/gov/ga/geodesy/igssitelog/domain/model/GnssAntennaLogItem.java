@@ -25,7 +25,7 @@ public class GnssAntennaLogItem implements EquipmentLogItem {
 
     @Size(max = 256)
     @Column(name = "ANTENNA_TYPE", length = 256)
-    protected String antennaType;
+    protected String type;
 
     @Size(max = 256)
     @Column(name = "SERIAL_NUMBER", length = 256)
@@ -89,15 +89,15 @@ public class GnssAntennaLogItem implements EquipmentLogItem {
     /**
      * Return antenna type.
      */
-    public String getAntennaType() {
-        return antennaType;
+    public String getType() {
+        return type;
     }
 
     /**
      * Set antenna type.
      */
-    public void setAntennaType(String value) {
-        this.antennaType = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**
