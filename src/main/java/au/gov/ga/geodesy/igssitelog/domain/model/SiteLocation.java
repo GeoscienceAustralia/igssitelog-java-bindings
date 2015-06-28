@@ -1,29 +1,39 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/siteLocation.xsd:siteLocationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteLocation.xsd:siteLocationType
  */
+@Embeddable
 public class SiteLocation {
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "city", length = 256)
     protected String city;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "STATE", length = 256)
     protected String state;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "COUNTRY", length = 256)
     protected String country;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TECTONIC_PLATE", length = 256)
     protected String tectonicPlate;
 
     @Valid
+    @Embedded
     protected ApproximatePosition approximatePosition;
 
     @Size(max = 4000)
+    @Column(name = "LOCATION_NOTES", length = 4000)
     protected String notes;
 
     /**

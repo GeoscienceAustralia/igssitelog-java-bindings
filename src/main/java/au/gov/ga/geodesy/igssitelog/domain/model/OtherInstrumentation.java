@@ -1,19 +1,33 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/otherInstrumentation.xsd
  */
+@Entity
+@Table(name = "SITELOG_OTHERINSTRUMENTATION")
 public class OtherInstrumentation {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGOTHERINSTRUMENT")
     private Integer id;
 
     @Size(max = 4000)
+    @Column(name = "INSTRUMENTATION", length = 4000)
     protected String instrumentation;
 
     @Valid
+    @Embedded
     protected EffectiveDates effectiveDates;
 
     @SuppressWarnings("unused")

@@ -1,46 +1,59 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/moreInformation.xsd:moreInformationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/moreInformation.xsd:moreInformationType
  */
 public class MoreInformation {
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_PRIMARY_DATA_CENTER", length = 256)
     protected String primaryDataCenter;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_SECONDARY_DATA_CENTER", length = 256)
     protected String secondaryDataCenter;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_URL_FOR_MORE_INFORMATION", length = 256)
     protected String urlForMoreInformation;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_HARD_COPY_ON_FILE", length = 256)
     protected String hardCopyOnFile;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_SITE_MAP", length = 256)
     protected String siteMap;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_SITE_DIAGRAM", length = 256)
     protected String siteDiagram;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_HORIZONTAL_MASK", length = 256)
     protected String horizonMask;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_MONUMENT_DESCRIPTION", length = 256)
     protected String monumentDescription;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_SITE_PICTIRES", length = 256)
     protected String sitePictures;
 
     @Size(max = 4000)
+    @Column(name = "MI_NOTES", length = 4000)
     protected String notes;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_ANTENNA_GRAPHICS", length = 256)
     protected String antennaGraphicsWithDimensions;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MI_TEXT_GRAPHICS_FROM_ANTENNA", length = 256)
     protected String insertTextGraphicFromAntenna;
 
     /**

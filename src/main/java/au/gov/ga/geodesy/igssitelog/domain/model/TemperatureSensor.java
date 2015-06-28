@@ -1,22 +1,38 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/temperatureSensor.xsd:temperatureSensorType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/temperatureSensor.xsd:temperatureSensorType
  */
+@Entity
+@Table(name = "SITELOG_TEMPERATURESENSOR")
 public class TemperatureSensor extends SensorEquipment {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGTEMPERATURESENSOR")
     private Integer id;
 
+    @Size(max = 256)
+    @Column(name = "DATA_SAMPLING_INTERVAL", length = 256)
     protected String dataSamplingInterval;
 
+    @Column(name = "ACCURACE_DEGREE_CELCIUS", length = 256)
     protected String accuracyDegreesCelcius;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "ASPIRATION", length = 256)
     protected String aspiration;
 
     @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

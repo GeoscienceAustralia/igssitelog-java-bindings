@@ -28,6 +28,7 @@
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.MoreInformation" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.MoreInformationAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.SignalObstruction" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.SignalObstructionAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.MultipathSource" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.MultipathSourceAdapter"/>
+        <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.Contact" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.ContactAdapter"/>
     </xml-java-type-adapters>
     <java-types>
         <java-type name="IgsSiteLog">

@@ -2,68 +2,89 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2004/siteIdentification.xsd:siteIdentificationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/monumentInfo/2564/siteIdentification.xsd:siteIdentificationType
  */
+@Embeddable
 public class SiteIdentification {
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SITE_NAME", length = 256)
     protected String siteName;
 
     @NotNull
     @Size(min = 4, max = 4)
+    @Column(name = "FOUR_CHARACTER_ID", length = 4)
     protected String fourCharacterId;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MONUMENT_INSCRIPTION", length = 256)
     protected String monumentInscription;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "IERS_DOMES_NUMBER", length = 256)
     protected String iersDOMESNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "CDP_NUMBER", length = 256)
     protected String cdpNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MONUMENT_DESCRIPTION", length = 256)
     protected String monumentDescription;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "HEIGHT_OF_MONUMENT", length = 256)
     protected String heightOfMonument;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MONUMENT_FOUNDATION", length = 256)
     protected String monumentFoundation;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "FOUNDATION_DEPTH", length = 256)
     protected String foundationDepth;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "MARKER_DESCRIPTION", length = 256)
     protected String markerDescription;
 
     @Past
+    @Column(name = "DATE_INSTALLED")
     protected Date dateInstalled;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "GEOLOGIC_CHARACTERISTIC", length = 256)
     protected String geologicCharacteristic;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "BEDROCK_TYPE", length = 256)
     protected String bedrockType;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "BEDROCK_CONDITION", length = 256)
     protected String bedrockCondition;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "FRACTURE_SPACING", length = 256)
     protected String fractureSpacing;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "FAULT_ZONES_NEARBY", length = 256)
     protected String faultZonesNearby;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "DISTANCE_ACTIVITY", length = 256)
     protected String distanceActivity;
 
     @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     /**

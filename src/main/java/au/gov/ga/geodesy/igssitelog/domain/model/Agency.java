@@ -1,16 +1,53 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2004/baseContactLib.xsd:contactInformationType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/contact/2564/baseContactLib.xsd:contactInformationType
  */
+@Entity
+@Table(name = "SITELOG_AGENCY")
 public class Agency {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGAGENCY")
     private Integer id;
+
+    @Size(max = 256)
+    @Column(name = "NAME", length = 256)
     protected String name;
+
+    @Size(max = 256)
+    @Column(name = "PREFERRED_ABBREVIATION", length = 256)
     protected String preferredAbbreviation;
+
+    @Size(max = 256)
+    @Column(name = "MAILING_ADDRESS", length = 256)
     protected String mailingAddress;
+
+    @Valid
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "PRIMARY_CONTACT_ID")
     protected Contact primaryContact;
+
+    @Valid
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "SECONDARY_CONTACT_ID")
     protected Contact secondaryContact;
+
+    @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")

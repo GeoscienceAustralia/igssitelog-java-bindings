@@ -2,41 +2,63 @@ package au.gov.ga.geodesy.igssitelog.domain.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 /**
- * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/surveyedLocalTies.xsd:surveyedLocalTiesType
+ * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/surveyedLocalTies.xsd:surveyedLocalTiesType
  */
+@Entity
+@Table(name = "SITELOG_SURVEYEDLOCALTIE")
 public class SurveyedLocalTie {
 
+    @Id
+    @GeneratedValue(generator = "surrogateKeyGenerator")
+    @SequenceGenerator(name = "surrogateKeyGenerator", sequenceName = "SEQ_SITELOGLOCALTIE")
     private Integer id;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TIED_MARKER_NAME", length = 256)
     protected String tiedMarkerName;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TIED_MARKER_USAGE", length = 256)
     protected String tiedMarkerUsage;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TIED_MARKER_CDP_NUMBER", length = 256)
     protected String tiedMarkerCdpNumber;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "TIED_MARKER_DOMES_NUMBER", length = 256)
     protected String tiedMarkerDomesNumber;
 
     @Valid
+    @Embedded
     protected DifferentialFromMarker differentialFromMarker;
 
+    @Size(max = 256)
+    @Column(name = "LOCAL_SITE_TIE_ACCURACY", length = 256)
     protected String localSiteTieAccuracy;
 
-    @Size(max = 200)
+    @Size(max = 256)
+    @Column(name = "SURVEY_METHOD", length = 256)
     protected String surveyMethod;
 
     @Past
+    @Column(name = "DATE_MEASURED")
     protected Date dateMeasured;
 
     @Size(max = 4000)
+    @Column(name = "NOTES", length = 4000)
     protected String notes;
 
     @SuppressWarnings("unused")
