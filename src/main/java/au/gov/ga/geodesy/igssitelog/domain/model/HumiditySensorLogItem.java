@@ -101,4 +101,8 @@ public class HumiditySensorLogItem extends SensorEquipmentLogItem {
     public void setNotes(String value) {
         this.notes = value;
     }
+
+    public <T> T accept(LogItemVisitor<T> v) {
+        return v.visit(this);
+    }
 }

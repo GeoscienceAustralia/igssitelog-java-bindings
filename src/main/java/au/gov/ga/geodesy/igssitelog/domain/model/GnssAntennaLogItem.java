@@ -285,4 +285,8 @@ public class GnssAntennaLogItem implements EquipmentLogItem {
     public EffectiveDates getEffectiveDates() {
         return new EffectiveDates(getDateInstalled(), getDateRemoved());
     }
+
+    public <T> T accept(LogItemVisitor<T> v) {
+        return v.visit(this);
+    }
 }
