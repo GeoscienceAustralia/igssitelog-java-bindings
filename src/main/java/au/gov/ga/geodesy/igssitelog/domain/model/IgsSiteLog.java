@@ -150,11 +150,12 @@ public class IgsSiteLog {
     @Embedded
     protected MoreInformation moreInformation;
 
-    // TODO: public surrogate key
+    @SuppressWarnings("unused") // used by hibernate
     private Integer getId() {
         return id;
     }
 
+    @SuppressWarnings("unused")
     private void setId(Integer id) {
         this.id = id;
     }
@@ -468,7 +469,7 @@ public class IgsSiteLog {
             if (Collection.class.isAssignableFrom(f.getType())) {
                 try {
                     CollectionUtils.filter((Collection<?>) f.get(this), NotNullPredicate.getInstance());
-                } catch (Exception e) {
+                } catch (IllegalAccessException e) {
                     log.warn(e);
                 }
             }
