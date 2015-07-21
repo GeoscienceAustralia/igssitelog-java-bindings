@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2564/frequencyStandard.xsd:frequenceStandardType
  */
 @Entity
-@Table(name = "FREQUENCY_STANDARD")
+@Table(name = "SITELOG_FREQUENCYSTANDARD")
 public class FrequencyStandardLogItem implements EquipmentLogItem {
 
     @Id
