@@ -37,7 +37,7 @@ public abstract class SensorEquipmentLogItem implements EquipmentLogItem {
 
     @Valid
     @Embedded
-    protected EffectiveDates effectiveDates = new EffectiveDates();
+    protected EffectiveDates effectiveDates;
 
     /**
      * Return sensor equipment type.
@@ -113,9 +113,6 @@ public abstract class SensorEquipmentLogItem implements EquipmentLogItem {
      * Return effective dates.
      */
     public EffectiveDates getEffectiveDates() {
-        if (effectiveDates == null) {
-            return new EffectiveDates();
-        }
         return effectiveDates;
     }
 
