@@ -480,6 +480,7 @@ public class IgsSiteLog {
         equipment.addAll(getGnssReceivers());
         equipment.addAll(getGnssAntennas());
         equipment.addAll(getHumiditySensors());
+        equipment.addAll(getFrequencyStandards());
         return equipment;
     }
 }

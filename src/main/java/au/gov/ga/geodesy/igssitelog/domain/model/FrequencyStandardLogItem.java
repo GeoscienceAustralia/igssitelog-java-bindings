@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "FREQUENCY_STANDARD")
-public class FrequencyStandardLogItem {
+public class FrequencyStandardLogItem implements EquipmentLogItem {
 
     @Id
     @GeneratedValue(generator = "surrogateKeyGenerator")
@@ -23,8 +23,8 @@ public class FrequencyStandardLogItem {
     private Integer id;
 
     @Size(max = 256)
-    @Column(name = "STANDARD_TYPE", length = 256)
-    protected String standardType;
+    @Column(name = "TYPE", length = 256)
+    protected String type;
 
     @Size(max = 256)
     @Column(name = "INPUT_FREQUENCY", length = 256)
@@ -51,15 +51,15 @@ public class FrequencyStandardLogItem {
     /**
      * Return standard type.
      */
-    public String getStandardType() {
-        return standardType;
+    public String getType() {
+        return type;
     }
 
     /**
      * Set standard type.
      */
-    public void setStandardType(String value) {
-        this.standardType = value;
+    public void setType(String value) {
+        this.type = value;
     }
 
     /**
@@ -102,5 +102,13 @@ public class FrequencyStandardLogItem {
      */
     public void setNotes(String value) {
         this.notes = value;
+    }
+
+    public String getSerialNumber() {
+        return null;
+    }
+
+    public <T> T accept(LogItemVisitor<T> v) {
+        return v.visit(this);
     }
 }

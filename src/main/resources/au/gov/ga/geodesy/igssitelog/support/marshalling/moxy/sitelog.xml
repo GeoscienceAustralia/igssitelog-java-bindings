@@ -108,7 +108,10 @@
             </java-attributes>
         </java-type>
         <java-type name="FrequencyStandardLogItem">
-            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="standardType inputFrequency effectiveDates notes "/>
+            <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="type inputFrequency effectiveDates notes "/>
+            <java-attributes>
+                <xml-element java-attribute="type" name="standardType"/>
+            </java-attributes>
         </java-type>
         <java-type name="CollocationInformation">
             <xml-type namespace="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prop-order="instrumentType status effectiveDates notes"/>
