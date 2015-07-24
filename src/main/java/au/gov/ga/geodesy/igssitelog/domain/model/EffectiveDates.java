@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
-import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.builder.EqualsBuilder;
 
 /**
  * http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004/baseEquipmentLib.xsd:baseSensorEquipmentType.effectiveDates Note: this is an attempt to
@@ -50,10 +50,30 @@ public class EffectiveDates {
     }
 
     public boolean equals(Object x) {
-        if (x instanceof EffectiveDates && x != null) {
-            EffectiveDates dates = (EffectiveDates) x;
-            return ObjectUtils.equals(from, dates.getFrom()) && ObjectUtils.equals(to, dates.getTo());
+        if (x == null) {
+            return false;
         }
-        return false;
+        if (x == this) {
+            return true;
+        }
+        if (x.getClass() != getClass()) {
+            return false;
+        }
+        EffectiveDates other = (EffectiveDates) x;
+        return equals(from, other.getFrom()) && equals(to, other.getTo());
+    }
+
+    /**
+     * We compare dates ourselves because some are java.util.Dates and some are
+     * java.sql.Timestamps.
+     */
+    private boolean equals(Date a, Date b) {
+        if (a == b) {
+            return true;
+        }
+        if (a == null || b == null) {
+            return false;
+        }
+        return a.getTime() == b.getTime();
     }
 }
