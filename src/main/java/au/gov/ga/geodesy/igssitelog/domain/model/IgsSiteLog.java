@@ -84,7 +84,7 @@ public class IgsSiteLog {
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "SITE_ID", referencedColumnName = "ID")
-    protected Set<FrequencyStandardLogItem> frequencyStandards;
+    protected Set<FrequencyStandardLogItem> frequencyStandards = new HashSet<FrequencyStandardLogItem>();
 
     @Valid
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
