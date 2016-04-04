@@ -6,8 +6,7 @@ package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 public abstract class MandatoryCompositeAdapter<T> extends OptionalCompositeAdapter<T> {
 
     @Override
-    @SuppressWarnings("unchecked")
-    public Object marshal(Object object) throws Exception {
+    public T marshal(T object) throws Exception {
         return object == null ? getDomainClass().newInstance() : object;
     }
 
