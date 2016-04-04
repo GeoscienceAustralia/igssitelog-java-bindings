@@ -7,6 +7,11 @@
     <name>IGS Site Log Bindings</name>
     <version>0.0.1-SNAPSHOT</version>
     <url>${siteinfo.urlhost}${project.groupId}/${project.artifactId}</url>
+    <scm>
+        <connection>scm:git:git@github.com:GeoscienceAustralia/igssitelog-java-bindings</connection>
+        <developerConnection>scm:git:git@github.com:GeoscienceAustralia/igssitelog-java-bindings</developerConnection>
+        <url>http://github.com/GeoscienceAustralia/igssitelog-java-bindings</url>
+    </scm>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.6</java.version>
