@@ -113,7 +113,7 @@ public class DateUtil {
             }
         }
         if (result == null) {
-            throw new MarshallingException("x Failed to parse String " + dateString + " with any of the registered patterns");
+            throw new MarshallingException("Failed to parse String " + dateString + " with any of the registered patterns");
         }
 
         return result;
