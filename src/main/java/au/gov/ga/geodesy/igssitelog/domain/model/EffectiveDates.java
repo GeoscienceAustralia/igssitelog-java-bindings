@@ -1,6 +1,6 @@
 package au.gov.ga.geodesy.igssitelog.domain.model;
 
-import java.util.Date;
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -16,64 +16,51 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 public class EffectiveDates {
 
     @Column(name = "EFFECTIVE_FROM")
-    private Date from;
+    private Instant from;
 
     @Column(name = "EFFECTIVE_TO")
-    private Date to;
+    private Instant to;
 
     public EffectiveDates() {
     }
 
-    public EffectiveDates(Date from) {
+    public EffectiveDates(Instant from) {
         this(from, null);
     }
 
-    public EffectiveDates(Date from, Date to) {
+    public EffectiveDates(Instant from, Instant to) {
         setFrom(from);
         setTo(to);
     }
 
-    public Date getFrom() {
+    public Instant getFrom() {
         return from;
     }
 
-    public void setFrom(Date from) {
+    public void setFrom(Instant from) {
         this.from = from;
     }
 
-    public Date getTo() {
+    public Instant getTo() {
         return to;
     }
 
-    public void setTo(Date to) {
+    public void setTo(Instant to) {
         this.to = to;
     }
 
-    public boolean equals(Object x) {
-        if (x == null) {
-            return false;
-        }
-        if (x == this) {
+    @Override public boolean equals(Object o) {
+        if (this == o)
             return true;
-        }
-        if (x.getClass() != getClass()) {
-            return false;
-        }
-        EffectiveDates other = (EffectiveDates) x;
-        return equals(from, other.getFrom()) && equals(to, other.getTo());
-    }
 
-    /**
-     * We compare dates ourselves because some are java.util.Dates and some are
-     * java.sql.Timestamps.
-     */
-    private boolean equals(Date a, Date b) {
-        if (a == b) {
-            return true;
-        }
-        if (a == null || b == null) {
+        if (o == null || getClass() != o.getClass())
             return false;
-        }
-        return a.getTime() == b.getTime();
+
+        EffectiveDates that = (EffectiveDates) o;
+
+        return new EqualsBuilder()
+                .append(getFrom(), that.getFrom())
+                .append(getTo(), that.getTo())
+                .isEquals();
     }
 }

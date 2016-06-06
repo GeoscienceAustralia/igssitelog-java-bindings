@@ -1,90 +1,82 @@
 package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
-
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.EffectiveDates;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
+import au.gov.ga.geodesy.igssitelog.util.DateUtil;
 
 public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
 
     private static final Logger log = LoggerFactory.getLogger(EffectiveDatesAdapter.class);
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static final String formatPattern = "(CCYY-MM-DD)";
-
-    public EffectiveDatesAdapter() {
-        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-    }
 
     @Override
     public String marshal(EffectiveDates dates) throws Exception {
         if (dates == null) {
             return null;
         }
+
         StringBuilder buf = new StringBuilder();
 
         if (dates.getFrom() == null) {
             buf.append(formatPattern);
         } else {
-            buf.append(dateFormat.format(dates.getFrom()));
+            buf.append(DateUtil.format(dates.getFrom()));
         }
         buf.append("/");
         if (dates.getTo() == null) {
             buf.append(formatPattern);
         } else {
-            buf.append(dateFormat.format(dates.getTo()));
+            buf.append(DateUtil.format(dates.getTo()));
         }
         return buf.toString();
     }
 
-    private Date parse(String s) {
-        try {
-            if (s.startsWith("CCYY-MM-DD") || s.startsWith("(CCYY-MM-DD")) {
-                return null;
-            }
-            return dateFormat.parse(s);
-        } catch (ParseException e) {
-            log.error("Failed to unmarshal date '" + s + "', returning null and carrying on");
-            return null;
-        }
-    }
-
     @Override
-    public EffectiveDates unmarshal(String s) throws Exception {
-        if (s == null) {
+    public EffectiveDates unmarshal(String inputDateString) throws Exception {
+        if (inputDateString == null) {
             return null;
         }
-        s = s.trim();
-        if (s.equals("")) {
+        inputDateString = inputDateString.trim();
+        if (inputDateString.equals("")) {
             return null;
         }
-        if (s.startsWith("(")) {
-            s = s.substring(1, s.length());
+        if (inputDateString.startsWith("(")) {
+            inputDateString = inputDateString.substring(1, inputDateString.length());
         }
-        if (s.endsWith(")")) {
-            s = s.substring(0, s.length() - 1);
+        if (inputDateString.endsWith(")")) {
+            inputDateString = inputDateString.substring(0, inputDateString.length() - 1);
         }
-        if (s.equals("CCYY-MM-DD/CCYY-MM-DD")) {
+        if (inputDateString.equals("CCYY-MM-DD/CCYY-MM-DD")) {
             return null;
         }
         EffectiveDates dates = new EffectiveDates();
-        String[] splits = s.split("/");
-        dates.setFrom(parse(splits[0]));
+        String[] splits = inputDateString.split("/");
+        try {
+            dates.setFrom(DateUtil.parse(splits[0]));
+        } catch (MarshallingException e) {
+            log.warn(e.getMessage());
+        }
+
         if (splits.length > 1) {
-            dates.setTo(parse(splits[1]));
+            try {
+                dates.setTo(DateUtil.parse(splits[1]));
+            } catch(MarshallingException e) {
+                log.warn(e.getMessage());
+            }
         }
         if (dates.getFrom() != null || dates.getTo() != null) {
             return dates;
         } else {
-            log.error("Failed to unmarshal effective dates '" + s + "', returning null and carrying on");
+            log.error("Failed to unmarshal effective dates '" + inputDateString + "', returning null and carrying on");
             return null;
         }
     }
+
+
 }
