@@ -27,6 +27,7 @@ public class DateAdapter extends XmlAdapter<String, Instant> {
         if (dateString == null) {
             return null;
         }
+        dateString = dateString.trim();
         try {
             result = DateUtil.parse(dateString);
         } catch (MarshallingException e) {
