@@ -8,7 +8,7 @@
         <xml-ns namespace-uri="http://sopac.ucsd.edu/ns/geodesy/doc/igsSiteLog/equipment/2004" prefix="equip"/>
     </xml-schema>
     <xml-java-type-adapters>
-        <xml-java-type-adapter type="java.util.Date" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateAdapter"/>
+        <xml-java-type-adapter type="java.time.Instant" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.DateAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.EffectiveDates" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.EffectiveDatesAdapter"/>
         <xml-java-type-adapter type="java.lang.String" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.StringAdapter"/>
         <xml-java-type-adapter type="au.gov.ga.geodesy.igssitelog.domain.model.GnssAntennaLogItem" value="au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.GnssAntennaAdapter"/>
