@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class DateAdapterTest {
     DateAdapter dateAdapter = new DateAdapter();
     @Test
-    public void testUnmarshalDateWIthWhiteSpace() throws Exception {
+    public void testUnmarshalDateWithWhiteSpace() throws Exception {
         String testDate = "1939-08-12\n    ";
         String expected = "1939-08-12";
         Instant actual = dateAdapter.unmarshal(testDate);
