@@ -1,9 +1,5 @@
 package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 
-import au.gov.ga.geodesy.igssitelog.domain.model.IgsSiteLog;
-import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
-import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
-
 import java.io.Reader;
 import java.io.Writer;
 import java.util.HashMap;
@@ -13,12 +9,18 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.ValidationEvent;
+import javax.xml.bind.util.ValidationEventCollector;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
 import org.eclipse.persistence.sessions.SessionEventListener;
+
+import au.gov.ga.geodesy.igssitelog.domain.model.IgsSiteLog;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
 
 /**
  * EclipseLink Moxy implementation using external mapping files.
@@ -87,7 +89,18 @@ public class IgsSiteLogMoxyMarshaller implements IgsSiteLogXmlMarshaller {
 
     public IgsSiteLog unmarshal(Reader reader) throws MarshallingException {
         try {
-            return (IgsSiteLog) createUnmarshaller().unmarshal(reader);
+            Unmarshaller unmarshaller = createUnmarshaller();
+            ValidationEventCollector eventCollector = new ValidationEventCollector();
+            unmarshaller.setEventHandler(eventCollector);
+            IgsSiteLog siteLog = (IgsSiteLog) unmarshaller.unmarshal(reader);
+
+            // TODO: report all errors with line numbers and without stack traces
+            for (ValidationEvent event : eventCollector.getEvents()) {
+                if (event.getLinkedException() instanceof MarshallingException) {
+                    throw (MarshallingException) event.getLinkedException();
+                }
+            }
+            return siteLog;
         } catch (JAXBException e) {
             throw new MarshallingException("Failed to unmarshal a site log", e);
         }
