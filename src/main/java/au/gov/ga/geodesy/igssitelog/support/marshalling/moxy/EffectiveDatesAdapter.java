@@ -38,7 +38,7 @@ public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
     }
 
     @Override
-    public EffectiveDates unmarshal(String inputDateString) throws Exception {
+    public EffectiveDates unmarshal(String inputDateString) throws MarshallingException {
         if (inputDateString == null) {
             return null;
         }
@@ -57,18 +57,10 @@ public class EffectiveDatesAdapter extends XmlAdapter<String, EffectiveDates> {
         }
         EffectiveDates dates = new EffectiveDates();
         String[] splits = inputDateString.split("/");
-        try {
-            dates.setFrom(DateUtil.parse(splits[0]));
-        } catch (MarshallingException e) {
-            log.warn(e.getMessage());
-        }
+        dates.setFrom(DateUtil.parse(splits[0]));
 
         if (splits.length > 1) {
-            try {
-                dates.setTo(DateUtil.parse(splits[1]));
-            } catch(MarshallingException e) {
-                log.warn(e.getMessage());
-            }
+            dates.setTo(DateUtil.parse(splits[1]));
         }
         if (dates.getFrom() != null || dates.getTo() != null) {
             return dates;

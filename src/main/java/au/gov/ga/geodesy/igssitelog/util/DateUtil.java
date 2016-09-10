@@ -7,10 +7,12 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -50,7 +52,10 @@ public class DateUtil {
 
     static {
         for (String pattern : inputDatePatterns) {
-            DateTimeFormatter inputDateFormat =  DateTimeFormatter.ofPattern(pattern).withZone(ZoneId.of("UTC"));
+            DateTimeFormatter inputDateFormat = DateTimeFormatter
+                .ofPattern(pattern)
+                .withZone(ZoneId.of("UTC"))
+                .withResolverStyle(ResolverStyle.STRICT);
             inputDateFormats.add(inputDateFormat);
         }
     }
@@ -113,7 +118,8 @@ public class DateUtil {
             }
         }
         if (result == null) {
-            throw new MarshallingException("Failed to parse String " + dateString + " with any of the registered patterns");
+            throw new MarshallingException("Failed to parse " + dateString + " with any of the registered patterns: " + 
+                StringUtils.join(inputDatePatterns, ","));
         }
 
         return result;
