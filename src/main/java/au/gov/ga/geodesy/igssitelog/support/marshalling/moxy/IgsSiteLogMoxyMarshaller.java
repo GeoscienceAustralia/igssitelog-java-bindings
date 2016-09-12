@@ -1,9 +1,5 @@
 package au.gov.ga.geodesy.igssitelog.support.marshalling.moxy;
 
-import au.gov.ga.geodesy.igssitelog.domain.model.IgsSiteLog;
-import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
-import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
-
 import java.io.Reader;
 import java.io.Writer;
 import java.util.HashMap;
@@ -12,13 +8,20 @@ import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.ParseConversionEvent;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.ValidationEvent;
+import javax.xml.bind.util.ValidationEventCollector;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
 import org.eclipse.persistence.jaxb.JAXBContextFactory;
 import org.eclipse.persistence.jaxb.JAXBContextProperties;
 import org.eclipse.persistence.sessions.SessionEventListener;
+
+import au.gov.ga.geodesy.igssitelog.domain.model.IgsSiteLog;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.IgsSiteLogXmlMarshaller;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
 
 /**
  * EclipseLink Moxy implementation using external mapping files.
@@ -87,7 +90,22 @@ public class IgsSiteLogMoxyMarshaller implements IgsSiteLogXmlMarshaller {
 
     public IgsSiteLog unmarshal(Reader reader) throws MarshallingException {
         try {
-            return (IgsSiteLog) createUnmarshaller().unmarshal(reader);
+            Unmarshaller unmarshaller = createUnmarshaller();
+            ValidationEventCollector eventCollector = new ValidationEventCollector() {
+                public boolean handleEvent(ValidationEvent event) {
+                    if (event.getLinkedException() instanceof MarshallingException) {
+                        return super.handleEvent(event);
+                    }
+                    return true;
+                }
+            };
+            unmarshaller.setEventHandler(eventCollector);
+            IgsSiteLog siteLog = (IgsSiteLog) unmarshaller.unmarshal(reader);
+
+            if (eventCollector.hasEvents()) {
+                throw new MarshallingException(eventCollector.getEvents());
+            }
+            return siteLog;
         } catch (JAXBException e) {
             throw new MarshallingException("Failed to unmarshal a site log", e);
         }
