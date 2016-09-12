@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import au.gov.ga.geodesy.igssitelog.domain.model.IgsSiteLog;
+import au.gov.ga.geodesy.igssitelog.interfaces.xml.MarshallingException;
 import au.gov.ga.geodesy.igssitelog.support.marshalling.moxy.IgsSiteLogMoxyMarshaller;
 
 public class IgsSiteLogMoxyMarshallerTest {
@@ -24,17 +25,32 @@ public class IgsSiteLogMoxyMarshallerTest {
     }
 
     @Test
-    public void testMarshallingAndUnmarshalling() throws Exception {
+    public void testUnmarshalling() throws Exception {
         for (File siteLogFile : getSiteLogFiles()) {
+            IgsSiteLog siteLog = null;
             try {
-                IgsSiteLog siteLog = marshaller.unmarshal(getSiteLogReader(siteLogFile));
-                marshaller.marshal(siteLog, new PrintWriter(new OutputStream() {
-                    public void write(int x) {
+                siteLog = marshaller.unmarshal(getSiteLogReader(siteLogFile));
+                System.out.println("Successfully unmarshalled " + siteLogFile.getName());
+            } catch (MarshallingException e) {
+                System.out.println("Failed to unmarshall " + siteLogFile.getName());
+                if (e.getValidationMessages().isEmpty()) {
+                    System.out.println(e.getMessage());
+                } else {
+                    for (String s : e.getValidationMessages()) {
+                        System.out.println(s);
                     }
-                }));
-                System.out.println("Successfully (un)marshalled " + siteLogFile.getAbsolutePath());
-            } catch (Exception e) {
-                throw new Exception("Failed to test (un)marshalling of " + siteLogFile.getAbsolutePath(), e);
+                }
+            }
+            if (siteLog != null) {
+                try {
+                    marshaller.marshal(siteLog, new PrintWriter(new OutputStream() {
+                        public void write(int x) {
+                        }
+                    }));
+                    System.out.println("Successfully marshalled " + siteLogFile.getName());
+                } catch (MarshallingException e) {
+                    System.out.println("Failed to marshall " + siteLogFile.getName() + ": " + e.getMessage());
+                }
             }
         }
     }
