@@ -1,8 +1,8 @@
 language: nix
-script: ./travis/build.sh
+script: "./travis/build.sh"
 branches:
   only:
-    - master
+  - master
 env:
   global:
   - secure: J28q7pm578B2WPLLBH7DbgyIOljy0Neo4dXpN3CJ2Sicl8Lk51vlB3NKN3UxII0Zix8fwyBG7gW7Z3mhYv/EJI2vIhYPPc9FXrDyeQ6P7RKzOQBXxTib0HA7ijWrjecaRDEL5dzy/ZubO4StDq6QZ/eYZGpMYHHe98PZNAka+Gz/7X1tx2QV1c2BY2fIRG7LgG54GUzVv60r7liot/ulfwPRe6NGGUpmJGkxCqsc4mIYs5ukBODGZ54TlBMTV7Oarfk2cKe97/1hrUlYdPZuPEvqbtsN7OP7SwPAeTgKK2837CYjQgxL6Y8Qlgun4JV+oWVj7lQqhe7m82quSXmADNtadTHsVnseWaC4pDWbNBsfZgCPzf1lFgMB2FqJEQfK6EvcaClnfohdcxChEjcTWWeXiNFEw0U0KFGUoab+WHYROHHKmcvhtCjRm+pKBGF3S0JCuH9CrMcahcNPVvz3ZanIig9GoDg8kisI4EYYv66XFKxA3ms+qKnLwVL7jbwtSw/tKCz80KUmT54PwGkEOZTGKBboPJ54+yWBmKJiSg1WpF3bfe0Qc4fOQxUgAK3K75zEx+r3Oydq710OtQIBg4CQm6ALIYEo4JEAAROOgZ63aoIbpANeq5NtjNjVWWBLr4OyjqfQpkiLevTK9TcDh6idynNHqq1tbIz9jLuGMQk=
