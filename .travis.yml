@@ -1,6 +1,6 @@
 language: nix
 script: "./travis/build.sh"
-after_success: "./travis/trigger.sh"
+after_success: "./travis/trigger-downstream.sh"
 cache:
   timeout: 86400 # 24 hours
   directories:
