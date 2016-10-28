@@ -1,6 +1,10 @@
 language: nix
 script: "./travis/build.sh"
 after_success: "./travis/trigger.sh"
+cache:
+  timeout: 86400 # 24 hours
+  directories:
+    - ${HOME}/.m2
 branches:
   only:
   - master
