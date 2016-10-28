@@ -8,7 +8,7 @@
 #   2) Use travis CLI to generate and ecrypt the API token TRAVIS_TOKEN.
 function trigger-travis {
     if [ "${TRAVIS_PULL_REQUEST}" = "false" ]; then
-        for repo in "${1[@]}"; do
+        for repo in "$@"; do
             body='{
             "request": {
               "branch":"master"
