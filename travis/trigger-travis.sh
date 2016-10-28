@@ -14,7 +14,7 @@ function trigger-travis {
               "branch":"master"
             }}'
 
-            echo curl -s -X POST \
+            curl -s -X POST \
               -H "Content-Type: application/json" \
               -H "Accept: application/json" \
               -H "Travis-API-Version: 3" \
