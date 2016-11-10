@@ -26,8 +26,13 @@ public class IgsSiteLogMoxyMarshallerTest {
     }
 
     @Test(expected = MarshallingException.class)
-    public void unmarshalInvalidSiteLog() throws MarshallingException {
+    public void unmarshalInvalidSiteLogText() throws MarshallingException {
         marshaller.unmarshal(new StringReader("foo"));
+    }
+
+    @Test(expected = MarshallingException.class)
+    public void unmarshalInvalidSiteLogXml() throws MarshallingException {
+        marshaller.unmarshal(new StringReader("<foo></foo>"));
     }
 
     @Test

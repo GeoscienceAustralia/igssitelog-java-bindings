@@ -105,6 +105,9 @@ public class IgsSiteLogMoxyMarshaller implements IgsSiteLogXmlMarshaller {
             if (eventCollector.hasEvents()) {
                 throw new MarshallingException(eventCollector.getEvents());
             }
+            if (siteLog == null) {
+                throw new MarshallingException("Failed to unmarshal a site log, invalid root element or namespace.");
+            }
             return siteLog;
         } catch (JAXBException e) {
             throw new MarshallingException("Failed to unmarshal a site log", e);
