@@ -16,9 +16,11 @@ let
   devEnv = with pkgs; buildEnv {
     name = "devEnv";
     paths = [
+      cacert
       maven3
       openjdk8
       travis
+      terraform_0_12
     ];
   };
 in
@@ -26,4 +28,7 @@ in
     buildInputs = [
       devEnv
     ];
+    shellHook = ''
+      export SSL_CERT_FILE="${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt"
+    '';
   } ""
