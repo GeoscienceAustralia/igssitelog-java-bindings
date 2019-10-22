@@ -18,6 +18,7 @@
         <spring.version>4.3.6.RELEASE</spring.version>
         <aspectj.version>1.8.6</aspectj.version>
         <SONAR_LOGIN>Pass in with -D</SONAR_LOGIN>
+        <gnss.artifactory.repo>gnss-artifactory</gnss.artifactory.repo>
     </properties>
     <dependencies>
         <dependency>
@@ -119,6 +120,13 @@
         </dependency>
     </dependencies>
     <build>
+        <extensions>
+            <extension>
+                <groupId>com.gkatzioura.maven.cloud</groupId>
+                <artifactId>s3-storage-wagon</artifactId>
+                <version>2.0</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -305,12 +313,12 @@
     </profiles>
     <distributionManagement>
         <snapshotRepository>
-            <id>nexus.gadevs</id>
-            <url>https://nexus.gadevs.ga/repository/maven-snapshots/</url>
+            <id>igssitelog-bindings-snapshot</id>
+            <url>s3://${gnss.artifactory.repo}/snapshots/${project.artifactId}/${project.version}</url>
         </snapshotRepository>
         <repository>
-            <id>nexus.gadevs</id>
-            <url>https://nexus.gadevs.ga/repository/maven-releases/</url>
+            <id>igssitelog-bindings-release</id>
+            <url>s3://${gnss.artifactory.repo}/releases/${project.artifactId}/${project.version}</url>
         </repository>
     </distributionManagement>
 </project>
