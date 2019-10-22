@@ -303,7 +303,7 @@
             </properties>
         </profile>
     </profiles>
-    <distributionManagement>
+    <!--<distributionManagement>
         <snapshotRepository>
             <id>nexus.gadevs</id>
             <url>https://nexus.gadevs.ga/repository/maven-snapshots/</url>
@@ -312,5 +312,5 @@
             <id>nexus.gadevs</id>
             <url>https://nexus.gadevs.ga/repository/maven-releases/</url>
         </repository>
-    </distributionManagement>
+    </distributionManagement>-->
 </project>
