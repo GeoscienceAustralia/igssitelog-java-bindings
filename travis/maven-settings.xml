@@ -5,9 +5,14 @@
 
     <servers>
         <server>
-            <id>nexus.gadevs</id>
-            <username>${env.TRAVIS_NEXUS_USERNAME}</username>
-            <password>${env.TRAVIS_NEXUS_PASSWORD}</password>
+            <id>geodesy.operations</id>
+            <username>${env.AWS_ACCESS_KEY_ID}</username>
+            <password>${env.AWS_SECRET_ACCESS_KEY}</password>
+        </server>
+        <server>
+            <id>geodesy.operations.prod</id>
+            <username>${env.AWS_ACCESS_KEY_ID_PROD}</username>
+            <password>${env.AWS_SECRET_ACCESS_KEY_PROD}</password>
         </server>
     </servers>
 </settings>
