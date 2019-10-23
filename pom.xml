@@ -18,7 +18,6 @@
         <spring.version>4.3.6.RELEASE</spring.version>
         <aspectj.version>1.8.6</aspectj.version>
         <SONAR_LOGIN>Pass in with -D</SONAR_LOGIN>
-        <gnss.artifactory.repo>gnss-artifactory</gnss.artifactory.repo>
     </properties>
     <dependencies>
         <dependency>
@@ -313,12 +312,12 @@
     </profiles>
     <distributionManagement>
         <snapshotRepository>
-            <id>igssitelog-bindings-snapshot</id>
-            <url>s3://${gnss.artifactory.repo}/maven-snapshots/${project.artifactId}/${project.version}</url>
+            <id>gnss-artifactory-snapshot</id>
+            <url>s3://gnss-artifactory/maven-snapshots/</url>
         </snapshotRepository>
         <repository>
-            <id>igssitelog-bindings-release</id>
-            <url>s3://${gnss.artifactory.repo}/maven-releases/${project.artifactId}/${project.version}</url>
+            <id>gnss-artifactory-release</id>
+            <url>s3://gnss-artifactory/maven-releases/</url>
         </repository>
     </distributionManagement>
 </project>
