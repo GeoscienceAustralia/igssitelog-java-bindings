@@ -314,11 +314,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>igssitelog-bindings-snapshot</id>
-            <url>s3://${gnss.artifactory.repo}/snapshots/${project.artifactId}/${project.version}</url>
+            <url>s3://${gnss.artifactory.repo}/maven-snapshots/${project.artifactId}/${project.version}</url>
         </snapshotRepository>
         <repository>
             <id>igssitelog-bindings-release</id>
-            <url>s3://${gnss.artifactory.repo}/releases/${project.artifactId}/${project.version}</url>
+            <url>s3://${gnss.artifactory.repo}/maven-releases/${project.artifactId}/${project.version}</url>
         </repository>
     </distributionManagement>
 </project>
