@@ -5,7 +5,7 @@
 
     <servers>
         <server>
-            <id>aws.geodesy.operations</id>
+            <id>awsGeodesyOperations</id>
             <username>${env.AWS_ACCESS_KEY_ID}</username>
             <password>${env.AWS_SECRET_ACCESS_KEY}</password>
         </server>
